@@ -1,23 +1,5 @@
-console.log('Theme toggle and animation logic'); // truncated
-
- 
-  
- // 🌙 Theme toggle logic
-document.getElementById('theme-toggle').addEventListener('click', () => {
-    const current = document.body.getAttribute('data-theme');
-    const next = current === 'dark' ? '' : 'dark';
-    document.body.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  });
-  
-  // 🌙 Load saved theme on page load
-  const saved = localStorage.getItem('theme');
-  if (saved) {
-    document.body.setAttribute('data-theme', saved);
-  }
-  
-  // 🎯 Animate sections when they enter viewport
-  const observer = new IntersectionObserver(entries => {
+// 🎯 Animate sections when they enter viewport
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
@@ -29,10 +11,11 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 
   // Toggle mobile menu
 const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
+const navLinks = document.getElementById('nav-links'); // Use ID from HTML
 
 hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('show');
 });
+
 
    
